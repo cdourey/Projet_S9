@@ -1,0 +1,5 @@
+Organiser le code avec différentes classes :
+
+- classe "acquisition" : recuperation des données 
+- classe "spectre" : affichage des spectres + affichage des informations nécessaires et tracée des graphiques
+- classe CTest afin de vérifier le programme 
