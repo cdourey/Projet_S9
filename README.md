@@ -9,3 +9,6 @@ Réunion 5/11/2022 :
   - rédaction du rapport n°1 
   - Début du Gantt 
 
+Réunion 17/11/2022 : 
+
+
