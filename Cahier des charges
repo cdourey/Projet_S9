@@ -1,1 +1,84 @@
+Projet S9_RAPPORT N°1
+ L’ETUDE DE LA FLUORESCENCE DE NOUVELLES MOLECULES POUR LA THERANOSTIQUE
+Ecrit par :
+AYINKAMIYE Milly-Rivière
+DOUREY Claudine
+MOUDOU Laila
+Etudiantes Ingénieures 5A Génie Biomédical
+Soumis à :
+Monsieur Arthur GAUTHERON
+      
+TABLE DES MATIERES
+I.
+CAHIER DES CHARGES ...............................................................................................3 Terminologie.......................................................................................................... 3 Contexte et présentation du projet ...................................................................... 3 Contexte.................................................................................................................. 3 Problématique ......................................................................................................... 4 Contraintes liées au projet ....................................................................................... 4 Objectifs................................................................................................................. 4 Exigences fonctionnelles ..................................................................................... 4
+A. B.
+1. 2. 3.
+C. D. E.
+Exigences moyens.................................................................................................... 5 Interface.................................................................................................................. 5 Langage.................................................................................................................. 5
+F.
+Exigences en termes de qualification ..................................................................... 5 ROLE DE CHAQUE MEMBRE DE L’EQUIPE AU SEIN DU PROJET ...........................6 CALENDRIER PREVISIONNEL ET LIVRABLES ...........................................................6
+1. 2.
+II.
+III. BIBLIOGRAPHIE...................................................................................................................7
+2
 
+I. CAHIER DES CHARGES A. Terminologie
+Fluorescence : émission lumineuse provoquée par diverses formes d'excitation autres que la chaleur.
+Rayons X : forme de rayonnement électromagnétique constitués de photons.
+Nanoparticules : molécules dont la taille varie entre 1 et 100 nanomètres, également appelées particules ultrafines (PUF).
+Scanner spectral : acronyme SCT, modalité d’imagerie qui allie le principe de la tomographie par rayons X (CT) et l’utilisation de plusieurs niveaux d’énergie.
+C++ : langage de programmation utilisé pour développer des applications graphiques.
+B. Contexte et présentation du projet
+1. Contexte
+La théranostique est la concaténation du mot thérapie et diagnostic. La thérapie sert à soigner (radiothérapie, chirurgie, médicaments, ...) quant au diagnostic, celui-ci sert à détecter les maladies grâce à l'imagerie, la biopsie, etc.
+L’idée de la théranostique est donc de combiner la détection et le soin. L’intérêt pour le patient est une prise en charge plus légère avec moins de RDV car les deux aspects sont combinés. Malheureusement, la théranostique est encore une méthode inexistante en routine clinique.
+Pour la détection, nous pouvons utiliser un scanner spectral tel que le scanner à comptage photonique. Concernant l’aspect soin, nous allons utiliser la X-PDT, il s’agit de la photothérapie dynamique par rayon X. Cette technique utilise des nanoparticules. Ces nanoparticules sont composées de gadolinium, de terbium III et de rosebengal. Le gadolinium absorbe l’énergie des rayons X et le transmet au terbium III. Le terbium III libère cette énergie en émettant de la fluorescence. Puis, le rosebengal absorbe cette fluorescence et émet, en fonction de la fluorescence qu’il a reçue, des radicaux libres qui vont engendrer la mort des cellules dans lesquelles se trouvent ces nanoparticules (suppression de la tumeur).
+      3
+
+ 2. Problématique
+Dans ce projet, nous nous intéressons uniquement à caractériser l’effet-dose de ces nanoparticules. C’est-à-dire caractériser la quantité de fluorescence émise par le terbium III en fonction des paramètres du scanner spectral et donc des rayons X.
+La question que nous nous posons est donc : Comment évolue la fluorescence en fonction des rayons X envoyés?
+3. Contraintes liées au projet
+Les nanoparticules “nus” ne sont pas biocompatibles, elles ne peuvent pas être envoyées telles quelles dans le corps. Pour les rendre biocompatibles, il faut les fonctionnaliser c’est-à-dire ajouter des éléments autour de ces nanoparticules. Plusieurs fonctionnalisations sont possibles et seront détaillées dans les prochains rapports.
+De plus, certaines études expérimentales ont permis, grâce à un logiciel d'acquisition, l'acquisition des spectres de fluorescence mais malheureusement le logiciel ne permet pas le traitement de ces spectres.
+C. Objectifs
+Par conséquent, notre objectif est de créer un logiciel pour afficher et traiter l’ensemble des données acquises pour plusieurs nanoparticules afin d’extraire les courbes de caractérisation des nanoparticules en fonction des paramètres du SPCCT (Spectral Photo- Counting Computed Tomography).
+D. Exigences fonctionnelles
+Le logiciel permet la lecture des fichiers de mesures et l’affichage des spectres de fluorescence associés à chaque acquisition. Le programme affiche les informations et trace
+    4
+
+les graphiques de résultats de façon dynamique tels que les différents points d'intérêt en fonction des concentrations.
+E. Exigences moyens
+1. Interface
+L’utilisateur utilise Qt Creator, un environnement de développement intégré multiplate- forme faisant partie du framework Qt. C’est un outil de création d’interface graphique, très utile dans le cadre du projet pour l’affichage des spectres de fluorescence.
+2. Langage
+Le programme utilise le langage C++ pour des questions de développement durable. En effet, ce langage utilise moins de ressources.
+F. Exigences en termes de qualification
+Concernant les exigences en termes de qualification, notre logiciel doit respecter la norme 62304 qui est la norme des logiciels. Il faudra ensuite bien suivre toutes les étapes de validation de logiciel. Dans ces étapes, on cherche à vérifier la solution tout en s’assurant l’atteinte des exigences prédéfinies optimisant le rapport bénéfices/risques.
+Pour se plier aux exigences de la réglementation, il faut tester au préalable notre code à l’aide des “unit tests” afin de détecter les erreurs et les lacunes en amont.
+  5
+
+II. ROLE DE CHAQUE MEMBRE DE L’EQUIPE AU SEIN DU PROJET
+Nous nous sommes réparties les différentes tâches à effectuer selon le modèle suivant :
+- Bibliographie approfondie sur le scanner à comptage photonique ainsi que les
+nanoparticules notamment la fonctionnalisation : Claudine Dourey
+- Etudes bibliographiques concernant la programmation : Claudine Dourey, Milly-Rivière
+Ayinkamiye, Laila Moudou
+- Création du logiciel qui lit les fichiers de mesure et affiche les spectres de fluorescence
+associés à chaque acquisition : Laila Moudou
+- Affichage des informations nécessaires concernant les spectres de fluorescence :
+Claudine Dourey
+- Traçage des graphiques de résultats de façon dynamique (différents points d'intérêt en fonction des concentrations.) : Milly-Rivière Ayinkamiye
+- GitHub, dossier de conception détaillée : Claudine Dourey, Milly-Rivière Ayinkamiye, Laila Moudou
+Nous tenons à préciser que nous nous aiderons entre nous si l’une de nous rencontre des difficultés par rapport à sa partie attribuée notamment en ce qui concerne le logiciel.
+III. CALENDRIER PREVISIONNEL ET LIVRABLES
+Nous avons réalisé un diagramme de Gantt afin de suivre l’avancée de chaque étape du projet. Voici le lien de notre Gantt : Gantt.xlsx
+Nous avons également créé un GitHub pour que notre référent puisse assister et commenter notre projet en temps réel. Le lien du GitHub est le suivant : https://github.com/cdourey/Projet_S9
+Un dossier de conception détaillée (disponible sur le GitHub) est rédigé tout au long du projet afin qu’un autre groupe puisse reprendre notre projet si nécessaire.
+              6
+
+BIBLIOGRAPHIE
+Diaporama_presentation_projet - Arthur Gautheron
+https://www.techno-science.net/definition/5133.html
+https://www.cardio-paramed.com/radioprotection/rayons-x/ https://www.novethic.fr/lexique/detail/nanoparticules.html https://fr.wikipedia.org/wiki/Scanner_spectral_X https://fr.wikipedia.org/wiki/Qt_Creator
+      7
