@@ -1,0 +1,27 @@
+##############Liens utiles###########
+http://grimaldi.univ-tln.fr/Le%20sujet%20de%20TP%20Développement%20Applications%20Qt.html
+https://labview.developpez.com/tutoriels/embarque/analyser-signaux/
+http://tvaira.free.fr/projets/activites/activite-qt-charts.html
+
+
+############# SCANNER 0 COMPTAGE PHOTONIQUE ###############
+
+Le scanner à comptage photonique est une première mondiale depuis 2019, certifié FDA depuis octobre 2021 et également marqué CE. 
+C’est un projet porté sur le territoire français à Bron sur le site du Cemep en collaboration avec Philips et les HCL. 
+Le scanner à comptage photonique permet une réelle rupture technologique avec une imagerie des structures tissulaires extrêmement fines (cardiologie, pneumologie). 
+Il permet une avancée majeure en oncologie, neurologie, etc. 
+En effet, ce scanner emploie des détecteurs à base de semi-conducteurs. 
+Contrairement au scanner dit « conventionnel », il permet une conversion directe de l’énergie des photons X en signal électrique. 
+Les septa sont supprimés ce qui permet une meilleure efficacité géométrique et une amélioration de la résolution spatiale. 
+Le bruit électronique lié à la double conversion est supprimé, ce qui améliore le contraste signal sur bruit. 
+Avec ce scanner, nous pouvons conserver et traiter l’information de photon et faire des acquisitions multi-énergies. 
+De plus, les doses de produit de contraste et de rayonnement sont réduites (jusqu’à 46% de la dose pour certains examens). 
+Néanmoins, trois défis sont à relever et sont des vrais freins pour la démocratisation du Photon-Counting  : 
+l’architecture réseau et poids des fichiers, coût de la technologie et positionnement sur le marché, cotations et forfaits techniques inchangés à l’heure actuelle. 
+
+SOURCES : AFIB - Retour mission AFIB Imagerie (Paul-Edouard BRUGGER)
+
+
+############ FONCTIONNALISATION DES NANOPARTICULES###########
+
+
