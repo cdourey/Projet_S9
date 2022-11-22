@@ -14,7 +14,7 @@ Réunion 17/11/2022 :
   - première organisation du code 
   - Début du diagramme UML
   
-A faire pour la prochaine séance 21/11/2022 : 
+A faire pour la prochaine séance 25/11/2022 : 
 
 - recherches bibliographiques sur programmation + scanner+ fonctionnalisation
 - avancement du code 
