@@ -8,7 +8,8 @@ https://www.codeurjava.com/2014/11/cc-le-dans-un-fichier-texte-methodes-de.html#
 
 
 
-############# SCANNER 0 COMPTAGE PHOTONIQUE ###############
+############# SCANNER COMPTAGE PHOTONIQUE ###############
+Pour la détection des maladies
 
 Le scanner à comptage photonique est une première mondiale depuis 2019, certifié FDA depuis octobre 2021 et également marqué CE. 
 C’est un projet porté sur le territoire français à Bron sur le site du Cemep en collaboration avec Philips et les HCL. 
@@ -24,6 +25,13 @@ Néanmoins, trois défis sont à relever et sont des vrais freins pour la démoc
 l’architecture réseau et poids des fichiers, coût de la technologie et positionnement sur le marché, cotations et forfaits techniques inchangés à l’heure actuelle. 
 
 SOURCES : AFIB - Retour mission AFIB Imagerie (Paul-Edouard BRUGGER)
+
+
+############ Photothérapie dynamique #######################
+Technique récente pour soigner les maladies
+
+C'est un traitement destiné à détruire des tissus pathologiques, basé sur l'activation d'une substance photosensibilisante (dans notre cas les nanoparticules)
+par un rayonnement. 
 
 
 ############ FONCTIONNALISATION DES NANOPARTICULES###########
