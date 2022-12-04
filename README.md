@@ -19,4 +19,8 @@ A faire pour la prochaine séance 25/11/2022 :
 - recherches bibliographiques sur programmation + scanner+ fonctionnalisation
 - avancement du code 
 
+Réunion 29/11/2022 :
+
+- reunion avec notre tuteur 
+- explication des différents fichiers à notre disposition
 
