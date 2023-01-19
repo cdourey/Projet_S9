@@ -144,4 +144,39 @@ void MainWindow::on_graphique_3_clicked()
 }
 
 
-//
+Cinformations ::Cinformations() // contructeur par défaut
+// initialisation des variables
+{
+    vector ={1,2,3,4};
+    tailleVector = 4;
+
+
+
+}
+
+Cinformations ::~Cinformations() // destructeur par défaut
+{
+
+}
+
+double moyenneTableau (QVector<int> vector, int tailleVector)
+{
+    int i =0;
+    int somme =0 ;
+    int resultat;
+
+    for (i=0 ; i<tailleVector; i++)
+    {
+        somme =vector[i] + somme ;
+
+
+    }
+   resultat = somme/tailleVector;
+
+    return resultat;
+
+    std::cout <<"La moyenne des valeurs est égale à" << resultat;
+
+}
+
+
