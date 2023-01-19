@@ -16,6 +16,8 @@ using namespace std;
 #include <QDebug>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <stdio.h>
+#include <stdlib.h>
 
 
 
@@ -44,6 +46,10 @@ public:
     QLineSeries *donnees3;
     QValueAxis *axisX;
     QValueAxis *axisY;
+    Cinformations() ; // constructeur par défaut
+    virtual ~Cinformations(); // destructeur par défaut
+    double moyenneTableau (QVector<int> vector, int tailleVector); // fonction qui calcule la moyenne
+
     
 
 private slots:
@@ -52,6 +58,8 @@ private slots:
     void on_graphique_1_clicked();
     void on_graphique_2_clicked();
     void on_graphique_3_clicked();
+    QVector<int> vector;
+    int tailleVector;
     
 
 private:
