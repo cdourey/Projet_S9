@@ -1,5 +1,18 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QtCharts/QChart>
+#include <QtCharts/QLineSeries>
+#include <QtCharts/QValueAxis>
+#include <QChart>
+#include <QChartView>
+#include <QChart>
+#include <QLineSeries>
+#include <QValueAxis>
+#include <QFileDialog>
+#include <QDebug>
+#include <QPushButton>
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -8,20 +21,10 @@
 using namespace std;
 #include <string>
 #include <vector>
-#include <QChartView>
-#include <QChart>
-#include <QLineSeries>
-#include <QValueAxis>
-#include <QFileDialog>
-#include <QDebug>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <stdio.h>
 #include <stdlib.h>
+#include <cstring>
+#include <cmath>
 
-
-
-#include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,40 +35,32 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-     ~MainWindow();
-    int lecture();
-    void ShowChart();
-    void vecteur();
-    QChartView *fenetre1; // un widget pour afficher un graphe
-    QChart *graphe1; // la reprÃ©sentation d'un graphe
-    QChart *graphe2;// la reprÃ©sentation d'un graphe
-    QChart *graphe3;
-    QLineSeries *donnees;// les donnÃ©es
-    QLineSeries *donnees2;
-    QLineSeries *donnees3;
-    QValueAxis *axisX;
-    QValueAxis *axisY;
-    Cinformations() ; // constructeur par défaut
-    virtual ~Cinformations(); // destructeur par défaut
-    double moyenneTableau (QVector<int> vector, int tailleVector); // fonction qui calcule la moyenne
 
-    
+    MainWindow(QWidget *parent = nullptr);
+    virtual ~MainWindow();
+    int lecture ();
+    QVector<QVector<string>> splitString(string filename, char delimiter);
+    double moyenneVecteur (QVector<double> vector, int tailleVector);// fonction qui calcule la moyenne
+    double integrale(QVector<double> vector, int x, int y); // fonction qui calcule la somme
+
+
 
 private slots:
+
     void on_pushButton_clicked();
-    void on_actionOuvrir_triggered();
-    void on_graphique_1_clicked();
-    void on_graphique_2_clicked();
-    void on_graphique_3_clicked();
-    QVector<int> vector;
-    int tailleVector;
-    
+
+    //void on_pushButton_2_clicked();
+
+   // void on_pushButton_3_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
+
     Ui::MainWindow *ui;
-
-
+    Ui::MainWindow *ui1;
 
 };
 #endif // MAINWINDOW_H
