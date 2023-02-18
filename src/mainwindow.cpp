@@ -12,171 +12,232 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-int MainWindow::lecture()
+QVector<QVector<string>> MainWindow::splitString(string filename, char delimiter) {
+    string line;
+    QVector<QVector<string>> result;
+    ifstream file(filename);
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            int start = 0;
+            QVector<string> segments;
+            int end = line.find(delimiter);
+            while (end != -1) {
+               // cout << line.substr(start, end - start) << " ";//retour à la ligne entre deux tabulations
+               segments.push_back(line.substr(start, end - start));
+                start = end + 1;//delimiter.size();
+                end = line.find(delimiter, start);
+               // result = std :: <<line.substr(start, end - start)<<"   ";
+
+                }
+           // cout << line.substr(start, end - start)<<endl;
+            segments.push_back(line.substr(start, end - start));
+            result.push_back(segments);
+           // return result;
+        }
+        file.close();
+    } else {
+        cout << "Unable to open file" << endl;
+    }
+    return result;
+}
+
+double MainWindow::integrale(QVector <double>  vector, int x,int y)
 {
+//   // QVector <double> acquisition;
 
-   ifstream filename("C:/Users/Laila/OneDrive/Documents/Data/22-03-14 - Fluo CERMEP/Acq01.txt");
+    double resultat = 0;
 
-   if(filename)
+    for (int i=x; i<y+1;i++)
    {
-      //L'ouverture s'est bien passée, on peut donc lire
-
-      string ligne; //Une variable pour stocker les lignes lues
-
-      while(getline(filename, ligne)) //Tant qu'on n'est pas à la fin, on lit
-      {
-         cout << ligne << endl;
-      }
+      resultat= vector[i] +resultat;
    }
-   else
-   {
-      cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
-   }
-
-   return 0;
+    return resultat;
 }
-
-void MainWindow::vecteur()
-{
-
-
-
-}
-
-void MainWindow::ShowChart(){
-
-  ifstream filename("C:/Users/Laila/OneDrive/Documents/Data/22-03-14 - Fluo CERMEP/Acq01.txt");
-  filename.open("Acq01.txt",ios::out);
-  if(filename.is_open()){
-
-// Séparer par des tabulations dans les ficheirs afin de
-// et read line afin de getline()
-// fournir un deux tableaux avec X longueur de lamda et Y intensité de fluorescences
-// test unitaire afficher le bon spectre avec les deux tabulations x et y et
-
-  filename.close();
-
-  }
-
-}
-
-
-
-void MainWindow::on_pushButton_clicked()
-{
-    cout<<"Afficher le graphique"<< endl;
-
-
-}
-
-ui1(new Ui::MainWindow)
-
-{
-    ui1->setupUi(this);
-    graphe1 = new QChart();
-    graphe2 = new QChart();
-    graphe3 = new QChart();
-    donnees = new QLineSeries();
-    donnees2 = new QLineSeries();
-    donnees3 = new QLineSeries();
-
-   // graphe 1
-    donnees->append(0,6);
-    donnees->append(1,5);
-    donnees->append(2,6);
-    donnees->append(5,7);
-    donnees->append(1,16);
-    donnees->append(0,4);
-   // graphe 2
-    donnees2->append(0,6);
-    donnees2->append(1,5);
-    donnees2->append(2,6);
-    donnees2->append(3,7);
-    donnees2->append(4,-2);
-    donnees2->append(5,4);
-   // graphe 3
-    donnees3->append(-1,6);
-    donnees3->append(1,5);
-    donnees3->append(2,6);
-    donnees3->append(3,7);
-    donnees3->append(4,-2);
-    donnees3->append(5,4);
-
-    // Ajout points
-    graphe1->setTitle("hello");
-    graphe1->addSeries(donnees);
-    // Ajout points
-    graphe2->setTitle("hello2");
-    graphe2->addSeries(donnees2);
-    // Ajout points
-    graphe3->setTitle("hello3");
-    graphe3->addSeries(donnees3);
-
-
-}
-
-MainWindow::~MainWindow()
-{
-    delete(ui1);
-}
-
-void MainWindow::on_actionOuvrir_triggered()
-{
-    QString filename = QFileDialog::getOpenFileName(this, "Ouvrir un fichier de donnÃ©es", "", "*");
-    qInfo()<<"Fichier Ouvert "<<filename;
-
-}
-
-void MainWindow::on_graphique_1_clicked()
-{
-    graphe1->createDefaultAxes();
-    ui1->fenetreView->setChart(graphe1);
-}
-void MainWindow::on_graphique_2_clicked()
-{
-    graphe2->createDefaultAxes();
-    ui1->fenetreView->setChart(graphe2);
-}
-void MainWindow::on_graphique_3_clicked()
-{
-    graphe3->createDefaultAxes();
-    ui1->fenetreView->setChart(graphe3);
-}
-
-
-Cinformations ::Cinformations() // contructeur par défaut
-// initialisation des variables
-{
-    vector ={1,2,3,4};
-    tailleVector = 4;
-
-
-
-}
-
-Cinformations ::~Cinformations() // destructeur par défaut
-{
-
-}
-
-double moyenneTableau (QVector<int> vector, int tailleVector)
+double MainWindow::moyenneVecteur (QVector<double> vector, int tailleVector)
 {
     int i =0;
-    int somme =0 ;
-    int resultat;
+    double somme =0 ;
+    double resultat;
 
     for (i=0 ; i<tailleVector; i++)
     {
-        somme =vector[i] + somme ;
+        somme =vector[i] + somme ; // somme des 10 valeurs
 
 
     }
-   resultat = somme/tailleVector;
+   resultat = somme/tailleVector; // moyenne de ces 10 valeurs
 
     return resultat;
 
-    std::cout <<"La moyenne des valeurs est égale à" << resultat;
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+   QVector<QVector<string>> segments = splitString("C:/Users/Laila/OneDrive/Documents/Data/22-03-14 - Fluo CERMEP/Acq01.txt",'\t');
+   QVector<double> LonguerOnde;
+   QVector<QVector<double>> acquisitions;
+     for (int i=14 ; i<15; i++){
+         for (int j = 2; j < segments[i].size(); j++) {
+             cout << segments[i][j] << " ";// STOCKER DANS UN VECTEUR
+             LonguerOnde.push_back(stod(segments[i][j]));// stod convertir un string en double
+          }
+              cout << endl;
+     }// LONGUEUR D'ONDE
+     for (int i=15 ; i<sizeof(segments); i++){// toutes les acquisitions sont stockées dans le vecteur acquisitions
+          QVector<double> acquisition;
+         for (int j = 2; j < segments[i].size(); j++) {
+             cout << segments[i][j] << " ";// STOCKER DANS UN VECTEUR
+             acquisition.push_back(stod(segments[i][j]));// stod convertir un string en double
+          }
+          acquisitions.push_back(acquisition);
+              cout << endl;
+     }
+
+// Création du graphique
+QChart *chart = new QChart();
+
+// Création des axes
+QValueAxis *axisX = new QValueAxis();
+axisX->setTitleText("Longueur d'onde (nm)");
+axisX->setLabelFormat("%d");
+axisX->setTickCount(LonguerOnde.size());
+axisX->setRange(200, 1000);
+chart->addAxis(axisX, Qt::AlignBottom);
+
+QValueAxis *axisY = new QValueAxis();
+axisY->setTitleText("Intensite (unité arbitraire)");
+axisY->setLabelFormat("%d");
+chart->addAxis(axisY, Qt::AlignLeft);
+
+//une deuxième boucle pour toutes les acquisitions
+// Ajout des données au graphique
+//QVector<QLineSeries*> vector;
+
+QLineSeries *series = new QLineSeries();
+
+for (int i = 0 ; i < LonguerOnde.size() ; i++)
+{
+   series->append(LonguerOnde[i], acquisitions[0][i]);
+}
+
+// Ajout des séries de données au graphique
+chart->addSeries(series);
+
+// Association des séries de données aux axes
+series->attachAxis(axisX);
+series->attachAxis(axisY);
+
+// Affichage du graphique
+QChartView *chartView = new QChartView(chart);
+chartView->setRenderHint(QPainter::Antialiasing);
+chartView->show();
 
 }
 
 
+void MainWindow::on_pushButton_5_clicked()
+{
+    QVector<QVector<string>> segments = splitString("C:/Users/Laila/OneDrive/Documents/Data/22-03-14 - Fluo CERMEP/Acq01.txt",'\t');
+    QVector<double> LonguerOnde;
+    QVector<QVector<double>> acquisitions;
+      for (int i=14 ; i<15; i++){
+          for (int j = 2; j < segments[i].size(); j++) {
+              cout << segments[i][j] << " ";// STOCKER DANS UN VECTEUR
+              LonguerOnde.push_back(stod(segments[i][j]));// stod convertir un string en double
+           }
+               cout << endl;
+      }// LONGUEUR D'ONDE
+      for (int i=15 ; i<sizeof(segments); i++){// toutes les acquisitions sont stockées dans le vecteur acquisitions
+           QVector<double> acquisition;
+
+          for (int j = 2; j < segments[i].size(); j++) {
+              cout << segments[i][j] << " ";// STOCKER DANS UN VECTEUR
+              acquisition.push_back(stod(segments[i][j]));// stod convertir un string en double
+           }
+           acquisitions.push_back(acquisition);
+               cout << endl;
+      }
+
+    //*****definition des indices de départ et fin pour la plage des longueurs d'onde *****//
+
+       int startindex= LonguerOnde.indexOf(750);
+       int endindex= LonguerOnde.indexOf(950);
+
+    // ************ Création d'un vecteur pour stocker la somme de chaque répétition d'une acquisition soit 10 valeurs ************//
+                QVector<double> vector3(0);
+                MainWindow w;
+
+         for (int i=0; i<acquisitions.size(); i++)
+                   {
+
+                     double resultat = w.integrale (acquisitions[i], startindex, endindex);
+                     cout << "L'integrale vaut " <<resultat<< endl;
+                     vector3.push_back(resultat);
+
+    // Concaténer les valeurs de vector3 en une chaîne de caractères
+
+        QString vectorString;
+
+        for (int i = 0; i < vector3.size(); i++) {
+            vectorString += QString::number(vector3[i]);
+            vectorString += " ";
+                     }
+
+    // Mettre à jour l'étiquette (label) pour afficher le résultat
+
+        ui->label->setText(vectorString);
+
+                   }
+
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    QVector<QVector<string>> segments = splitString("C:/Users/Laila/OneDrive/Documents/Data/22-03-14 - Fluo CERMEP/Acq01.txt",'\t');
+    QVector<double> LonguerOnde;
+    QVector<QVector<double>> acquisitions;
+      for (int i=14 ; i<15; i++){
+          for (int j = 2; j < segments[i].size(); j++) {
+              cout << segments[i][j] << " ";// STOCKER DANS UN VECTEUR
+              LonguerOnde.push_back(stod(segments[i][j]));// stod convertir un string en double
+           }
+               cout << endl;
+      }// LONGUEUR D'ONDE
+      for (int i=15 ; i<sizeof(segments); i++){// toutes les acquisitions sont stockées dans le vecteur acquisitions
+           QVector<double> acquisition;
+          for (int j = 2; j < segments[i].size(); j++) {
+              cout << segments[i][j] << " ";// STOCKER DANS UN VECTEUR
+              acquisition.push_back(stod(segments[i][j]));// stod convertir un string en double
+           }
+           acquisitions.push_back(acquisition);
+               cout << endl;
+      }
+
+      QVector<double> vector3(0);
+      MainWindow w;
+      //*****definition des indices de départ et fin pour la plage des longueurs d'onde *****//
+
+         int startindex= LonguerOnde.indexOf(750);
+         int endindex= LonguerOnde.indexOf(950);
+
+      for (int i=0; i<acquisitions.size(); i++)
+                {
+
+                  double resultat = w.integrale (acquisitions[i], startindex, endindex);
+                  vector3.push_back(resultat);
+
+                  // ************* Appel de la fonction moyenne ************//
+
+
+
+                }
+      double resultat= w.moyenneVecteur(vector3, vector3.size());
+
+       // Mettre à jour l'étiquette (label) pour afficher le résultat
+
+      QString resultatString = QString::number(resultat);
+
+      ui->label_2->setText(resultatString);
+
+}
