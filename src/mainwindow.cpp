@@ -183,7 +183,7 @@ void MainWindow::on_pushButton_5_clicked()
             vectorString += " ";
                      }
 
-    // Mettre à jour l'étiquette (label) pour afficher le résultat
+    // Affichage du contenu du vecteur 3 avec un label 
 
         ui->label->setText(vectorString);
 
@@ -226,15 +226,13 @@ void MainWindow::on_pushButton_6_clicked()
 
                   double resultat = w.integrale (acquisitions[i], startindex, endindex);
                   vector3.push_back(resultat);
-
-                  // ************* Appel de la fonction moyenne ************//
-
-
-
                 }
+    
+    
+     // ************* Appel de la fonction moyenne ************//
       double resultat= w.moyenneVecteur(vector3, vector3.size());
 
-       // Mettre à jour l'étiquette (label) pour afficher le résultat
+       //  Affichage le résultat avec un label 
 
       QString resultatString = QString::number(resultat);
 
