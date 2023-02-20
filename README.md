@@ -32,7 +32,7 @@ Partie 2 : Informations liées aux spectres de fluorescence
 
 Préliminaires : 
 - récupérer les vecteurs longueur d'onde et acquisitions
-- dans le vecteur acquisitions 
+- dans le vecteur acquisitions, il y differents fichiers d'acquisition numérotée. Chaque fichier d'acquistion contient 10 répétitions. Chaque répétition contient 10 lignes soit 10 spectres + une ligne qui est le fond lumineux.
 
 Etape 1 : Définir une plage de longueur d'onde sur laquelle nous allons calculer l'intégrale en faisant la somme des différentes intensités de l'indice de départ à l'indice d'arrivée. 
 
@@ -40,4 +40,4 @@ Etape 2 : Création de la fonction intégrale qui calcule l'intégrale en faisan
 
 Etape 3 : Stocker les différentes sommes obtenues dans un vecteur.
 
-tape 4 : Création d'une fonction moyenne qui va calculer la moyenne du vecteur contenant les integrales. Cette fonction prend en argument le vecteur ainsi que la taille du vecteur. 
+Etape 4 : Création d'une fonction moyenne qui va calculer la moyenne du vecteur contenant les integrales. Cette fonction prend en argument le vecteur ainsi que la taille du vecteur. 
