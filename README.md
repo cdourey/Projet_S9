@@ -28,7 +28,7 @@ Réunion 29/11/2022 :
 
 Explication CODE : 
 
-Partie 2 : Informations liées aux spectres de fluorescence 
+**Partie 2 : Informations liées aux spectres de fluorescence** 
 
 Préliminaires : 
 - récupérer les vecteurs longueur d'onde et acquisitions
@@ -42,7 +42,7 @@ Etape 3 : Stocker les différentes sommes obtenues dans un vecteur.
 
 Etape 4 : Création d'une fonction moyenne qui va calculer la moyenne du vecteur contenant les integrales. Cette fonction prend en argument le vecteur ainsi que la taille du vecteur.
 
-Partie 3 : Traçage du graphique dynamique de l'Intensité de Fluorescence en fonction des concentrations des nanoparticules `
+**Partie 3 : Traçage du graphique dynamique de l'Intensité de Fluorescence en fonction des concentrations des nanoparticules**
 
 Etape 1 : Conception et construction de l’interface graphique grace à Qt Designer ou Qt GUI. Il permet d'organiser la forme de la fenetre et l'agencement. Cela nous a permis également d'organiser la fenetre finale qui comprend les spectres d'acquisition ainsi que le graphique de l'intensité de fluorescence en fonction de la concentration des nanoparticules 
 
