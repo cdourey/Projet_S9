@@ -28,7 +28,7 @@ Réunion 29/11/2022 :
 
 Explication CODE : 
 
-Partie : Informations liées aux spectres de fluorescence 
+Partie 2 : Informations liées aux spectres de fluorescence 
 
 Préliminaires : 
 - récupérer les vecteurs longueur d'onde et acquisitions
@@ -36,6 +36,8 @@ Préliminaires :
 
 Etape 1 : Définir une plage de longueur d'onde sur laquelle nous allons calculer l'intégrale en faisant la somme des différentes intensités de l'indice de départ à l'indice d'arrivée. 
 
-Etape 2 : Création de la fonction intégrale qui calcule l'intégrale en faisant la somme. Cette fonction prend en argument chaque ligne d'un fichier acquisition (par exemple acq01). La fonction calcule alors la somme des différentes valeurs de la ligne. 
+Etape 2 : Création de la fonction intégrale qui calcule l'intégrale en faisant la somme. Cette fonction prend en argument chaque ligne d'un fichier acquisition (par exemple acq01). Elle prend également en argument l'indice de départ et d'arrivée, c'est-à-dire la plage sur laquelle va etre calculé l'intégrale. La fonction calcule alors la somme des différentes valeurs de la ligne. 
 
-Etape 3 : 
+Etape 3 : Stocker les différentes sommes obtenues dans un vecteur.
+
+tape 4 : Création d'une fonction moyenne qui va calculer la moyenne du vecteur contenant les integrales. Cette fonction prend en argument le vecteur ainsi que la taille du vecteur. 
