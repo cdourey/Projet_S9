@@ -40,4 +40,13 @@ Etape 2 : Création de la fonction intégrale qui calcule l'intégrale en faisan
 
 Etape 3 : Stocker les différentes sommes obtenues dans un vecteur.
 
-Etape 4 : Création d'une fonction moyenne qui va calculer la moyenne du vecteur contenant les integrales. Cette fonction prend en argument le vecteur ainsi que la taille du vecteur. 
+Etape 4 : Création d'une fonction moyenne qui va calculer la moyenne du vecteur contenant les integrales. Cette fonction prend en argument le vecteur ainsi que la taille du vecteur.
+
+Partie 3 : Traçage du graphique dynamique de l'Intensité de Fluorescence en fonction des concentrations des nanoparticules `
+
+Etape 1 : Conception et construction de l’interface graphique grace à Qt Designer ou Qt GUI. Il permet d'organiser la forme de la fenetre et l'agencement. Cela nous a permis également d'organiser la fenetre finale qui comprend les spectres d'acquisition ainsi que le graphique de l'intensité de fluorescence en fonction de la concentration des nanoparticules 
+
+Etape 2 : Construction de la fonction permettant d'ouvrir le fichier qui repertorie les concentrations de chacune des nanoparticules ainsi que l'acquisition correspondante 
+
+Etape 3 : Lecture des données comprises dans le fichier "manip.csv" et associer l'axe des abscisses aux concentrations contenues dans le fichier et sur l'axe des ordonnées on retrouve l'intensité de fluorescence calculée grace à la méthode de calcul de moyenne qui va nous renvoyer la moyenne de chacune des nanoparticules. 
+
