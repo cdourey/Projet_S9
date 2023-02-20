@@ -13,6 +13,8 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QPushButton>
+#include <QFont>
+#include <QDirIterator>
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -42,25 +44,33 @@ public:
     QVector<QVector<string>> splitString(string filename, char delimiter);
     double moyenneVecteur (QVector<double> vector, int tailleVector);// fonction qui calcule la moyenne
     double integrale(QVector<double> vector, int x, int y); // fonction qui calcule la somme
+    /*milly*/
+    int add_data(QString);
+    void ajout_moyenne(QStringList filenames,QString date);
+    void getData(QString path);
 
 
 
 private slots:
 
     void on_pushButton_clicked();
+    /******code milly*/
+    void on_actionOuvrir_triggered();
 
-    //void on_pushButton_2_clicked();
 
-   // void on_pushButton_3_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_6_clicked();
 
 private:
 
     Ui::MainWindow *ui;
     Ui::MainWindow *ui1;
+/*milly*/
+    QChartView *fenetre1; // un widget pour afficher un graphe
+    QChart *graphe1; // la représentation d'un graphe
+    QMap<QString, QLineSeries*> Data;
+    QMap<QString, double> Moyennes;
+    QValueAxis *axisY;
+    QValueAxis *axisX;
+    QString datafile;
 
 };
 #endif // MAINWINDOW_H
