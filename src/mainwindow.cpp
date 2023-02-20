@@ -6,12 +6,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    axisY = new QValueAxis();
-    axisX = new QValueAxis();
     graphe1 = new QChart();
     datafile = QFileDialog::getExistingDirectory(this);
-    getData("/22-03-14 - Fluo CERMEP/");
-    getData("/22-10-20 - Fluo CERMEP/");
+    getData("/22-03-14 - Fluo CERMEP/","14-03-2022");
+    getData("/22-10-20 - Fluo CERMEP/","20-10-2022");
 }
 
 MainWindow::~MainWindow()
@@ -189,28 +187,20 @@ int MainWindow::add_data(QString filename)// permet de lire les données se trou
     }
     file.close();
 
-    graphe1->setTitle("Graphique des concentrations");
+    graphe1->setTitle("Graphique des Intensités en fonction de la concentration");
     graphe1->legend()->show();
 
     QMap<QString, QLineSeries*>::const_iterator i = Data.constBegin();
 
-    axisX->setLabelFormat("%.2f");//un nombre après la virgule
-    axisX->setTitleText("Concentration");
-    graphe1->addAxis(axisX, Qt::AlignBottom);
-
-    axisY->setLabelFormat("%.1f");//un nombre après la virgule
-    axisY->setTitleText("Intensité de Fluorescence");
-    graphe1->addAxis(axisY, Qt::AlignLeft);
-
     while (i != Data.constEnd()) {
         i.value()->setName(i.key());
         graphe1->addSeries(i.value());
-        i.value()->attachAxis(axisX);
-        i.value()->attachAxis(axisY);
         ++i;
     }
     // graphe1->addSeries(donnees);
-    //graphe1->createDefaultAxes();
+    graphe1->createDefaultAxes();
+    graphe1->axes(Qt::Horizontal).back()->setTitleText("Concentration (mol/l)");
+    graphe1->axes(Qt::Vertical).back()->setTitleText("Intensite de Fluorescence");
     ui->fenetreView->setChart(graphe1);
     //ui1->fenetreView->setRenderHint(QPainter::Antialiasing);
     return 0;
@@ -258,9 +248,7 @@ void MainWindow::ajout_moyenne(QStringList filenames,QString date)
     }
 }
 
-
-
-void MainWindow::getData(QString path)
+void MainWindow::getData(QString path,QString date)
 {
     QStringList filenames ;
     QString dir = datafile;
@@ -269,9 +257,5 @@ void MainWindow::getData(QString path)
         while (it.hasNext())
             filenames.append(it.next());
     //QList filenames= QFileDialog::getOpenFileNames(this, "Ouvrir un fichier", "","*.txt");
-    ajout_moyenne(filenames,"14-03-2022");
+    ajout_moyenne(filenames,date);
 }
-
-
-
-
