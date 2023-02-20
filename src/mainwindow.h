@@ -47,9 +47,7 @@ public:
     /*milly*/
     int add_data(QString);
     void ajout_moyenne(QStringList filenames,QString date);
-    void getData(QString path);
-
-
+    void getData(QString path,QString date);
 
 private slots:
 
@@ -68,8 +66,6 @@ private:
     QChart *graphe1; // la représentation d'un graphe
     QMap<QString, QLineSeries*> Data;
     QMap<QString, double> Moyennes;
-    QValueAxis *axisY;
-    QValueAxis *axisX;
     QString datafile;
 
 };
